@@ -45,7 +45,7 @@ class Chat {
             return new MessageHistory(this, messages, hasMore, nextPage);
         } else Error('Could not fetch the chat history.')
     }
-    async sendAndAwaitResponse(optionsOrMessage, singleReply) {
+    sendAndAwaitResponse(optionsOrMessage, singleReply) {
         if (!this.client.isAuthenticated()) throw Error('You must be authenticated to do this.');
 
         const payload = new OutgoingMessage(this, optionsOrMessage)
