@@ -1,5 +1,6 @@
 const Chat = require('./chat')
 const { v4: uuidv4 } = require('uuid');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 class Client {
     #token = undefined;
