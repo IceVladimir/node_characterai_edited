@@ -1,4 +1,4 @@
-const { Reply, Message, MessageHistory, OutgoingMessage } = require("./message");
+const { Reply, Message, MessageHistory, OutgoingMessage } = require("node_characterai/message");
 
 class Chat {
     constructor(client, characterId, continueBody) {
@@ -45,7 +45,7 @@ class Chat {
             return new MessageHistory(this, messages, hasMore, nextPage);
         } else Error('Could not fetch the chat history.')
     }
-    sendAndAwaitResponse(optionsOrMessage, singleReply) {
+    async sendAndAwaitResponse(optionsOrMessage, singleReply) {
         if (!this.client.isAuthenticated()) throw Error('You must be authenticated to do this.');
 
         const payload = new OutgoingMessage(this, optionsOrMessage)
